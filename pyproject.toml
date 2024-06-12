@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools", "wheel", "pip"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "learnpy"
+version = "0.0.1"
+authors = [
+    { name = "Krishnasis Mandal", email = "krishnasis@hotmail.com" },
+]
+maintainers = [
+    { name = "Krishnasis Mandal", email = "krishnasis@hotmail.com" },
+]
+description = "Learn Python!"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">3.11"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+]
+keywords = [
+    "learn",
+]
+dynamic = ["dependencies"]
+
+[project.scripts]
+learn-py = "src.main:main"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+exclude = ["docs*", "tests*"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.ruff]
+indent-width = 4
+line-length = 120
+fix = true
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+exclude = ["docs"]
+preview = true
+select = [
+    "E", "W",
+    "F",
+    "UP",
+    "SIM",
+    "I",
+    "C901",
+]
+
+[tool.lint.mccabe]
+max-complexity = 10
+
+[tool.pytest.ini_options]
+log_cli = true
+log_level = "NOTSET"
