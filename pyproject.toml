@@ -31,7 +31,7 @@ include-package-data = false
 
 [tool.setuptools.packages.find]
 include = ["src*"]
-exclude = ["docs*", "tests*"]
+exclude = ["docs*"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
@@ -43,7 +43,7 @@ fix = true
 
 [tool.ruff.lint]
 fixable = ["ALL"]
-exclude = ["docs"]
+exclude = ["docs", "exercises/"]
 preview = true
 select = [
     "E", "W",

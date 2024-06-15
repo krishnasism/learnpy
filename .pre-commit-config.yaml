@@ -9,7 +9,7 @@ repos:
     hooks:
     - id: ruff-lint
       name: ruff lint
-      entry: ruff check
+      entry: ruff check src/
       language: system
       pass_filenames: false
     - id: ruff-format
@@ -19,6 +19,6 @@ repos:
       pass_filenames: false
     - id: mypy
       name: mypy
-      entry: mypy .
+      entry: mypy src/
       language: system
       pass_filenames: false
