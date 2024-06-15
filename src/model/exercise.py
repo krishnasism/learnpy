@@ -45,10 +45,13 @@ class Exercise:
         Runs the exercise.
         Each exercise has a corresponding test file which is run to check if the exercise is correct.
         """
+        # HACK: This is a hack to disable logging from pytest.
         orig_stdout = sys.stdout
         sys.stdout = io.StringIO()
-        ret_code = pytest.main(["-x, --log-disable", self.path.replace("exercises/", "tests/test_")])
+        ret_code = pytest.main(["-x", self.path.replace("exercises / ", "tests / test_")])
         sys.stdout = orig_stdout
+        # ----
+
         return Result(ret_code)
 
     def state(self) -> State:

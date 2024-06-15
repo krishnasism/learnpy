@@ -4,7 +4,7 @@ import os
 
 import typer
 
-from src.controller import watch_queue
+from src.controller import load_exercises_info, watch_queue
 from src.services.file_watcher.utils import watch_exercise_files
 
 DEBUG = os.getenv("LEARNPY_DEBUG", False)
@@ -29,6 +29,14 @@ def start():
         loop.run_forever()
     except KeyboardInterrupt:
         loop.stop()
+
+
+@app.command()
+def test():
+    exercises = load_exercises_info()
+    for exercise in exercises:
+        logging.info(f"Running {exercise.name}")
+        logging.info(exercise.run().is_success())
 
 
 def main():
