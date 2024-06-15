@@ -1,14 +1,8 @@
+import io
+import sys
 from enum import Enum
 
-
-class Mode(Enum):
-    """
-    Mode of the exercise.
-    An exercise can either be a test or a syntax exercise.
-    """
-
-    TEST = "test"
-    SYNTAX = "syntax"
+import pytest
 
 
 class State(Enum):
@@ -26,25 +20,36 @@ class Result:
     Represents the result of running an exercise.
     """
 
+    def __init__(self, ret_code: int | pytest.ExitCode) -> None:
+        self.ret_code = ret_code
+
+    def is_success(self) -> bool:
+        """
+        Checks if the result is successful.
+        """
+        return self.ret_code == 0
+
 
 class Exercise:
     """
     Represents an exercise.
-    Deserialized from the info.toml file.
     """
 
-    def __init__(self) -> None:
-        self.name: str
-        self.path: str
-        self.mode: Mode
-        self.hint: str
+    def __init__(self, name, path, hint) -> None:
+        self.name: str = name
+        self.path: str = path
+        self.hint: str = hint
 
     def run(self) -> Result:
         """
         Runs the exercise.
-        If the exercise is a test, it runs the test.
+        Each exercise has a corresponding test file which is run to check if the exercise is correct.
         """
-        return Result()
+        orig_stdout = sys.stdout
+        sys.stdout = io.StringIO()
+        ret_code = pytest.main(["-x, --log-disable", self.path.replace("exercises/", "tests/test_")])
+        sys.stdout = orig_stdout
+        return Result(ret_code)
 
     def state(self) -> State:
         """
@@ -52,7 +57,7 @@ class Exercise:
         """
         with open(self.path, encoding="UTF-8") as source_code:
             while line := source_code.readline():
-                if contains_not_done_comment(line.rstrip()):
+                if "# I AM NOT DONE" in line.rstrip():
                     return State.PENDING
         return State.DONE
 
@@ -61,10 +66,3 @@ class Exercise:
         Checks if the exercise is done.
         """
         return self.state() == State.DONE
-
-
-def contains_not_done_comment(line: str) -> bool:
-    """
-    Checks if the line contains a "# I AM NOT DONE".
-    """
-    return "# I AM NOT DONE" in line
