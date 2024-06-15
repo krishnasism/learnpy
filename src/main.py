@@ -20,7 +20,7 @@ def doc():
 
 
 @app.command()
-def start(debug: bool = False):
+def start():
     """Start learning"""
     loop = asyncio.new_event_loop()
     loop.create_task(watch_exercise_files(), name="watch_exercise_files")
