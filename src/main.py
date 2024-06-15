@@ -1,11 +1,16 @@
 import asyncio
+import logging
+import os
 
 import typer
 
 from src.services.communication.queue import get_watcher_queue
 from src.services.file_watcher.utils import watch_exercise_files
 
-from .runner import Runner
+debug = os.getenv("LEARNPY_DEBUG", False)
+print(f"DEBUG: {debug}")
+if debug:
+    logging.basicConfig(level=logging.DEBUG)
 
 app = typer.Typer()
 
@@ -16,7 +21,7 @@ def doc():
 
 
 @app.command()
-def start():
+def start(debug: bool = False):
     """Start learning"""
     loop = asyncio.new_event_loop()
     loop.create_task(watch_exercise_files(), name="watch_exercise_files")
@@ -32,17 +37,8 @@ async def watch_queue():
     while True:
         if not queue.empty():
             item = queue.get_nowait()
-            print(f"[Debug] Something changed with {item}")
+            logging.debug(f"Something changed with {item}")
         await asyncio.sleep(2)
-
-
-@app.command()
-def run(script_path: str = "src/exercises/9999_test.py"):
-    """Run the script"""
-    typer.echo(f"Running {script_path}")
-    runner = Runner(script_path)
-    runner.run()
-    typer.echo(runner.get_stdout())
 
 
 def main():
