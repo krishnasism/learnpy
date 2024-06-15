@@ -1,6 +1,8 @@
 import asyncio
+import io
 import logging
 import os
+import sys
 
 import pytest
 import typer
@@ -38,7 +40,10 @@ async def watch_queue():
         if not queue.empty():
             item = queue.get_nowait()
             logging.debug(f"Something changed with {item}")
+            orig_stdout = sys.stdout
+            sys.stdout = io.StringIO()
             ret_code = pytest.main(["-x", item.replace("exercises/", "tests/test_")])
+            sys.stdout = orig_stdout
             logging.info("Correct!") if ret_code == 0 else logging.info("Not correct!")
 
         await asyncio.sleep(2)
