@@ -7,9 +7,7 @@ from .file_watcher_event_handler import Handler
 
 
 def __watch_exercise_files():
-    exercises_path = (
-        f"{os.path.dirname(os.path.dirname(os.path.realpath(os.path.dirname(os.path.realpath(__file__)))))}/exercises/"
-    )
+    exercises_path = f"{os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(os.path.dirname(os.path.realpath(__file__))))))}/exercises/"  # noqa: E501
     print(f"[Debug] Watching: {exercises_path}")
     observer = Observer()
     observer.schedule(Handler(), exercises_path, recursive=True)
