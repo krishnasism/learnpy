@@ -1,7 +1,11 @@
+import asyncio
+
 import typer
 
+from src.services.communication.queue import get_watcher_queue
+from src.services.file_watcher.utils import watch_exercise_files
+
 from .runner import Runner
-from .textual_app import LearnPyApp
 
 app = typer.Typer()
 
@@ -14,8 +18,22 @@ def doc():
 @app.command()
 def start():
     """Start learning"""
-    learn_py_app = LearnPyApp()
-    learn_py_app.run()
+    loop = asyncio.new_event_loop()
+    loop.create_task(watch_exercise_files(), name="watch_exercise_files")
+    loop.create_task(watch_queue(), name="watch_queue")
+    try:
+        loop.run_forever()
+    except KeyboardInterrupt:
+        loop.stop()
+
+
+async def watch_queue():
+    queue = get_watcher_queue()
+    while True:
+        if not queue.empty():
+            item = queue.get_nowait()
+            print(f"[Debug] Something changed with {item}")
+        await asyncio.sleep(2)
 
 
 @app.command()
