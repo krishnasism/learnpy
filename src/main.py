@@ -7,10 +7,9 @@ import typer
 from src.services.communication.queue import get_watcher_queue
 from src.services.file_watcher.utils import watch_exercise_files
 
-debug = os.getenv("LEARNPY_DEBUG", False)
-print(f"DEBUG: {debug}")
-if debug:
-    logging.basicConfig(level=logging.DEBUG)
+DEBUG = os.getenv("LEARNPY_DEBUG", False)
+level = logging.DEBUG if DEBUG else logging.INFO
+logging.basicConfig(level=level)
 
 app = typer.Typer()
 
