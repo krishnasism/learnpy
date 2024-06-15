@@ -1,0 +1,6 @@
+[[exercises]]
+name = "intro"
+path = "exercises/0000_intro"
+hint = """
+Remove the "I AM NOT DONE" comment to move on!
+"""
