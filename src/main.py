@@ -2,6 +2,7 @@ import asyncio
 import logging
 import os
 
+import pytest
 import typer
 
 from src.services.communication.queue import get_watcher_queue
@@ -37,6 +38,9 @@ async def watch_queue():
         if not queue.empty():
             item = queue.get_nowait()
             logging.debug(f"Something changed with {item}")
+            ret_code = pytest.main(["-x", item.replace("exercises/", "tests/test_")])
+            logging.info("Correct!") if ret_code == 0 else logging.info("Not correct!")
+
         await asyncio.sleep(2)
 
 
