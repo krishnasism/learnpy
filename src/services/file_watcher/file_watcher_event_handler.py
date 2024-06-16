@@ -9,4 +9,4 @@ class Handler(FileSystemEventHandler):
         if event.is_directory:
             return None
         elif event.event_type == "modified":
-            get_watcher_queue().put_nowait(event.src_path)
+            get_watcher_queue().put(event.src_path)

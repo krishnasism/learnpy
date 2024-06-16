@@ -53,7 +53,7 @@ async def watch_queue():
     exercise_info = get_exercise_info_dict()
     while True:
         if not queue.empty():
-            item: str = queue.get_nowait()
+            item: str = queue.get()
             modified_exercise = item.split("_")[-1].replace(".py", "")
             orig_stdout = sys.stdout
             sys.stdout = io.StringIO()
