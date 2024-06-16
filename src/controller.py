@@ -5,7 +5,8 @@ import sys
 
 import pytest
 
-from src.model.exercise import Exercise, Exercises
+from src.model.exercise import Exercise
+from src.model.exercises import Exercises
 from src.services.communication.queue import get_watcher_queue
 
 exercises = Exercises()

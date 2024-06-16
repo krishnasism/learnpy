@@ -5,7 +5,7 @@ import os
 import typer
 
 from src.controller import get_correct_and_watched_exercises, watch_queue
-from src.model.exercise import Exercises
+from src.model.exercises import Exercises
 from src.services.file_watcher.utils import watch_exercise_files
 
 DEBUG = os.getenv("LEARNPY_DEBUG", False)
