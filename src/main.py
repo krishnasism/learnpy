@@ -4,7 +4,8 @@ import os
 
 import typer
 
-from src.controller import get_correct_and_watched_exercises, load_exercises_info, watch_queue
+from src.controller import get_correct_and_watched_exercises, watch_queue
+from src.model.exercise import Exercises
 from src.services.file_watcher.utils import watch_exercise_files
 
 DEBUG = os.getenv("LEARNPY_DEBUG", False)
@@ -12,6 +13,7 @@ level = logging.DEBUG if DEBUG else logging.INFO
 logging.basicConfig(level=level)
 
 app = typer.Typer()
+exercises = Exercises()
 
 
 @app.command()
@@ -33,16 +35,14 @@ def start():
 
 @app.command()
 def watch():
-    exercises = load_exercises_info()
-    correct, watched = get_correct_and_watched_exercises(exercises)
+    correct, watched = get_correct_and_watched_exercises(exercises.all())
     logging.info(f"Correct exercises: {[e.name for e in correct]}")
     logging.info(f"Watched exercises: {[e.name for e in watched]}")
 
 
 @app.command()
 def report():
-    exercises = load_exercises_info()
-    correct, _ = get_correct_and_watched_exercises(exercises)
+    correct, _ = get_correct_and_watched_exercises(exercises.all())
     logging.info(f"Finished exercises: {[e.name for e in correct]}")
 
 
