@@ -19,6 +19,24 @@ def load_exercises_info() -> list[Exercise]:
     return [Exercise(**exercise) for exercise in exercises_toml["exercises"]]
 
 
+def get_correct_and_watched_exercises(exercises: list[Exercise]) -> tuple[list[Exercise], list[Exercise]]:
+    correct_exercises = []
+    watched_exercises = []
+    for exercise in exercises:
+        if exercise.is_done():
+            # check if exercise is correct
+            correct = exercise.run().is_success()
+            if correct:
+                correct_exercises.append(exercise)
+                logging.debug(f"{exercise.name} is correct")
+                continue
+            else:
+                logging.debug(f"{exercise.name} is incorrect")
+        watched_exercises.append(exercise)
+        logging.debug(f"Watching {exercise.name}")
+    return correct_exercises, watched_exercises
+
+
 def get_exercise_info_dict() -> dict:
     """
     Transform exercise list into dictionary

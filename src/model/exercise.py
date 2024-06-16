@@ -50,8 +50,6 @@ class Exercise:
         sys.stdout = io.StringIO()
         ret_code = pytest.main(["-x", self.path.replace("exercises / ", "tests / test_")])
         sys.stdout = orig_stdout
-        # ----
-
         return Result(ret_code)
 
     def state(self) -> State:
@@ -69,3 +67,9 @@ class Exercise:
         Checks if the exercise is done.
         """
         return self.state() == State.DONE
+
+    def is_correct(self) -> bool:
+        """
+        Checks if the exercise is correct.
+        """
+        return self.run().is_success()

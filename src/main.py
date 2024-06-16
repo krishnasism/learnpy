@@ -4,7 +4,7 @@ import os
 
 import typer
 
-from src.controller import load_exercises_info, watch_queue
+from src.controller import get_correct_and_watched_exercises, load_exercises_info, watch_queue
 from src.services.file_watcher.utils import watch_exercise_files
 
 DEBUG = os.getenv("LEARNPY_DEBUG", False)
@@ -32,11 +32,11 @@ def start():
 
 
 @app.command()
-def test():
+def watch():
     exercises = load_exercises_info()
-    for exercise in exercises:
-        logging.info(f"Running {exercise.name}")
-        logging.info(exercise.run().is_success())
+    correct, watched = get_correct_and_watched_exercises(exercises)
+    logging.info(f"Correct exercises: {[e.name for e in correct]}")
+    logging.info(f"Watched exercises: {[e.name for e in watched]}")
 
 
 def main():
