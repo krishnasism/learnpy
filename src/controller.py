@@ -38,9 +38,7 @@ def get_correct_and_watched_exercises(exercises: list[Exercise]) -> tuple[list[E
 
 
 def get_exercise_info_dict() -> dict:
-    """
-    Transform exercise list into dictionary
-    """
+    """Transform exercise list into dictionary"""
     exercise_info = load_exercises_info()
     exercise_info_dict = dict()
     for exercise in exercise_info:
@@ -49,6 +47,7 @@ def get_exercise_info_dict() -> dict:
 
 
 async def watch_queue():
+    """Watches for events pushed by file watcher"""
     queue = get_watcher_queue()
     exercise_info = get_exercise_info_dict()
     while True:

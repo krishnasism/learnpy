@@ -39,5 +39,12 @@ def watch():
     logging.info(f"Watched exercises: {[e.name for e in watched]}")
 
 
+@app.command()
+def report():
+    exercises = load_exercises_info()
+    correct, _ = get_correct_and_watched_exercises(exercises)
+    logging.info(f"Finished exercises: {[e.name for e in correct]}")
+
+
 def main():
     app()

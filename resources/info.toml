@@ -6,8 +6,23 @@ Remove the "I AM NOT DONE" comment to move on!
 """
 
 [[exercises]]
-name = "sum"
+name = "print"
 path = "exercises/0001_print.py"
 hint = """
 Use the `print` function to print the sum of 2 and 3 contained in the sum_ab variable.
+"""
+
+
+[[exercises]]
+name = "import"
+path = "exercises/0002_import.py"
+hint = """
+Import the correct library to be able to use the math.sqrt function
+"""
+
+[[exercises]]
+name = "arithmetic"
+path = "exercises/0003_arithmetic.py"
+hint = """
+You can google for the formula of a cylinder!
 """
