@@ -4,3 +4,10 @@ path = "exercises/0000_intro.py"
 hint = """
 Remove the "I AM NOT DONE" comment to move on!
 """
+
+[[exercises]]
+name = "sum"
+path = "exercises/0001_print.py"
+hint = """
+Use the `print` function to print the sum of 2 and 3 contained in the sum_ab variable.
+"""
