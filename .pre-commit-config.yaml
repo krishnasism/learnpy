@@ -22,3 +22,8 @@ repos:
       entry: mypy src/
       language: system
       pass_filenames: false
+    - id: pytest
+      name: pytest
+      entry: pytest tests/
+      language: system
+      pass_filenames: false

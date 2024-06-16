@@ -19,3 +19,9 @@ uv pip install -r requirements-dev.txt
 # Run
 learn-py start
 ```
+
+
+## Tests
+```zsh
+pytest tests/
+```

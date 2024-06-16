@@ -48,7 +48,7 @@ class Exercise:
         # HACK: This is a hack to disable logging from pytest.
         orig_stdout = sys.stdout
         sys.stdout = io.StringIO()
-        ret_code = pytest.main(["-x", self.path.replace("exercises / ", "tests / test_")])
+        ret_code = pytest.main(["-x", self.path.replace("exercises / ", "exercise_tests / test_")])
         sys.stdout = orig_stdout
         return Result(ret_code)
 

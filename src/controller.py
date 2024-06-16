@@ -40,7 +40,7 @@ async def watch_queue():
             exercise: Exercise = exercises[modified_exercise]
             orig_stdout = sys.stdout
             sys.stdout = io.StringIO()
-            ret_code = pytest.main(["-x", item.replace("exercises/", "tests/test_")])
+            ret_code = pytest.main(["-x", item.replace("exercises/", "exercise_tests/test_")])
             sys.stdout = orig_stdout
             logging.info("Correct!") if ret_code == 0 else logging.info("Not correct!")
             if ret_code != 0:
