@@ -13,3 +13,4 @@ for i in range(len(numbers) + 1):
 # I'M NOT DONE
 
 assert expected_sum == actual_sum, f"Expected sum to be {expected_sum}, but got {actual_sum}"
+print("ok")

@@ -21,7 +21,9 @@ try:
 except IndexError:
     actual_message = "index error"
 
-assert actual_message == expected_message, f"Expected {expected_message} got {actual_message}"
 
 # When you are done with an exercise, remove the following line!
 # I'M NOT DONE
+
+assert actual_message == expected_message, f"Expected {expected_message} got {actual_message}"
+print("ok")

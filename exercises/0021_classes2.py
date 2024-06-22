@@ -1,6 +1,6 @@
 # Problem: Fix the class
 
-# Class representing a Student
+
 class Student:
     def __init__(self, name):
         self.name = name
@@ -19,6 +19,7 @@ def test_student():
     student = Student(student_name)
 
     assert student.passed(), f"{student.name} should have passed with a score of {student_score}"
+    print("ok")
 
 
 test_student()

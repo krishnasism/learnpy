@@ -18,8 +18,8 @@ elif average_score >= 70:
 else:
     actual_result = "Fail"
 
-assert expected_result == actual_result, "Expected to fail"
-
-
 # When you are done with an exercise, remove the following line!
 # I'M NOT DONE
+
+assert expected_result == actual_result, "Expected to fail"
+print("ok")

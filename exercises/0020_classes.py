@@ -19,6 +19,7 @@ def test_circle():
     actual_area = circle.calculate_area()
 
     assert expected_area == actual_area, f"Expected area to be {expected_area}, but got {actual_area}"
+    print("ok")
 
 
 test_circle()

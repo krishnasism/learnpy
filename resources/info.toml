@@ -26,3 +26,140 @@ path = "exercises/0003_arithmetic.py"
 hint = """
 You can google for the formula of a cylinder!
 """
+
+
+[[exercises]]
+name = "lists"
+path = "exercises/0004_lists.py"
+hint = """
+All elements must be 2x
+"""
+
+
+
+[[exercises]]
+name = "dicts"
+path = "exercises/0005_dicts.py"
+hint = """
+The total marks must be calculated
+"""
+
+
+[[exercises]]
+name = "sets"
+path = "exercises/0006_sets.py"
+hint = """
+Common games
+"""
+
+
+[[exercises]]
+name = "tuples"
+path = "exercises/0007_tuples.py"
+hint = """
+Tuples cannot be modified
+"""
+
+
+[[exercises]]
+name = "collections"
+path = "exercises/0008_collections.py"
+hint = """
+No hint ;)
+"""
+
+
+[[exercises]]
+name = "if"
+path = "exercises/0009_if.py"
+hint = """
+The direction matters!
+"""
+
+
+[[exercises]]
+name = "ifelseif"
+path = "exercises/0010_ifelseif.py"
+hint = """
+The flow matters!
+"""
+
+
+[[exercises]]
+name = "ifelse"
+path = "exercises/0011_ifelse.py"
+hint = """
+No hints!
+"""
+
+
+[[exercises]]
+name = "for"
+path = "exercises/0012_for.py"
+hint = """
+The hint is in the error message ;)
+"""
+
+
+[[exercises]]
+name = "while"
+path = "exercises/0013_while.py"
+hint = """
+What's being concatenated first?
+"""
+
+
+[[exercises]]
+name = "functions"
+path = "exercises/0014_functions.py"
+hint = """
+Python doesn't enforce the return type :O
+"""
+
+
+[[exercises]]
+name = "functions2"
+path = "exercises/0015_functions2.py"
+hint = """
+Call me maybe
+"""
+
+
+[[exercises]]
+name = "types"
+path = "exercises/0018_types.py"
+hint = """
+""
+"""
+
+
+[[exercises]]
+name = "classes"
+path = "exercises/0020_classes.py"
+hint = """
+Think about scopes
+"""
+
+
+[[exercises]]
+name = "classes2"
+path = "exercises/0021_classes2.py"
+hint = """
+Is the value set?
+"""
+
+
+[[exercises]]
+name = "exceptions"
+path = "exercises/0023_exceptions.py"
+hint = """
+Name of the Exception matters
+"""
+
+
+[[exercises]]
+name = "files"
+path = "exercises/0024_files.py"
+hint = """
+Default mode of opening a file is the "r" (read) mode
+"""

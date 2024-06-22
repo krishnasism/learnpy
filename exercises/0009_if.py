@@ -16,3 +16,4 @@ if (maths + english + sports) / 3 < 50:
 # I'M NOT DONE
 
 assert expected_pass_result == actual_pass_result, "Expected to fail"
+print("ok")
