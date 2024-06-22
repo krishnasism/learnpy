@@ -24,6 +24,7 @@ def doc():
 @app.command()
 def start():
     """Start learning"""
+    logging.info("Watching.. go ahead and finish a problem")
     loop = asyncio.new_event_loop()
     loop.create_task(watch_exercise_files(), name="watch_exercise_files")
     loop.create_task(watch_queue(), name="watch_queue")

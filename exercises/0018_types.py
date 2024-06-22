@@ -1,5 +1,7 @@
-# TODO: Fix the following code to make this print 4.0
-print(math.sqrt(16))
+passing_marks = "False"
+
+
+assert passing_marks is False, "Should not pass"
 
 # When you are done with an exercise, remove the following line!
 # I'M NOT DONE
