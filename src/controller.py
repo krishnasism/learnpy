@@ -3,6 +3,7 @@ import io
 import logging
 import sys
 
+import aiofiles
 import pytest
 
 from src.model.exercise import Exercise
@@ -40,6 +41,9 @@ async def watch_queue():
             exercise: Exercise = exercises[modified_exercise]
             orig_stdout = sys.stdout
             sys.stdout = io.StringIO()
+            if not await is_ready(item):
+                logging.info("Don't forget to remove the # I'M NOT DONE when you're done ;)")
+                continue
             ret_code = pytest.main(["-x", item.replace("exercises/", "exercise_tests/test_")])
             sys.stdout = orig_stdout
             logging.info("Correct!") if ret_code == 0 else logging.info("Not correct!")
@@ -47,3 +51,9 @@ async def watch_queue():
                 logging.info(f"HINT: {exercise.hint}")
 
         await asyncio.sleep(2)
+
+
+async def is_ready(file_path: str) -> bool:
+    async with aiofiles.open(file_path) as f:
+        contents = await f.read()
+    return "# I'M NOT DONE" not in contents
