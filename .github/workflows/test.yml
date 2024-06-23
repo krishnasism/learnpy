@@ -34,9 +34,9 @@ jobs:
     - name: Lint with ruff
       run: |
         pip install --upgrade --force-reinstall ruff
-        python3 -m ruff check
+        python3 -m ruff check src/
     - name: Run mypy
-      run: python -m mypy
+      run: python -m mypy src/ --check-untyped-defs
 
   tests:
     needs: linter
