@@ -41,16 +41,29 @@ async def watch_queue():
             exercise: Exercise = exercises[modified_exercise]
             orig_stdout = sys.stdout
             sys.stdout = io.StringIO()
-            if not await is_ready(item):
+
+            ready = await is_ready(item)
+            tests_passed = False
+            if ready:
+                tests_passed = pytest.main(["-x", item.replace("exercises/", "exercise_tests/test_")]) == 0
+                sys.stdout = orig_stdout
+                logging.info("Correct!") if tests_passed else logging.info("Not correct!")
+                if tests_passed:
+                    continue
+            else:
                 logging.info("Don't forget to remove the # I'M NOT DONE when you're done ;)")
-                continue
-            ret_code = pytest.main(["-x", item.replace("exercises/", "exercise_tests/test_")])
-            sys.stdout = orig_stdout
-            logging.info("Correct!") if ret_code == 0 else logging.info("Not correct!")
-            if ret_code != 0:
+
+            hint_enabled = await show_hint(item)
+            if hint_enabled:
                 logging.info(f"HINT: {exercise.hint}")
 
         await asyncio.sleep(2)
+
+
+async def show_hint(file_path: str) -> bool:
+    async with aiofiles.open(file_path) as f:
+        contents = await f.read()
+    return "# hint: yes" in contents
 
 
 async def is_ready(file_path: str) -> bool:
