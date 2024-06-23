@@ -14,3 +14,6 @@ with open("0023_files_file.txt") as file:
 
 assert written_message == message, "Expected message to be written to file"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

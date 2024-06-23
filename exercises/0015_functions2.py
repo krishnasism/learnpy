@@ -13,3 +13,6 @@ to_test = "abc##!@!^!!"
 
 assert not is_alphanumeric, "String must not alphanumeric since it contains special characters"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

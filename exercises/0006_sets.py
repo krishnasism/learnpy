@@ -10,3 +10,6 @@ common_games = set()
 # I'M NOT DONE
 
 print(common_games)
+
+# To get a hint, change the following no to a yes
+# hint: no

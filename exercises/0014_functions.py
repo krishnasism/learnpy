@@ -16,3 +16,6 @@ actual_result = sum(a, b)
 
 assert actual_result == actual_result, f"Expected {expected_result} got {actual_result}"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

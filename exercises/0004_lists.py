@@ -6,3 +6,6 @@ numbers = [1, 2, 3, 4, 5]
 # I'M NOT DONE
 
 print(numbers)
+
+# To get a hint, change the following no to a yes
+# hint: no

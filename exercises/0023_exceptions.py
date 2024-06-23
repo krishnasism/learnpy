@@ -27,3 +27,6 @@ except IndexError:
 
 assert actual_message == expected_message, f"Expected {expected_message} got {actual_message}"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

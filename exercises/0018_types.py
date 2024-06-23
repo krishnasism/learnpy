@@ -6,3 +6,6 @@ passing_marks = "False"
 
 assert passing_marks is False, "Should not pass"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

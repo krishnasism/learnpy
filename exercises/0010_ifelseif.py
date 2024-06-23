@@ -23,3 +23,6 @@ else:
 
 assert expected_result == actual_result, "Expected to fail"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

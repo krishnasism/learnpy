@@ -27,3 +27,6 @@ mattias_marks = 0  # calculate this
 # I'M NOT DONE
 
 print(mattias_marks)
+
+# To get a hint, change the following no to a yes
+# hint: no

@@ -14,3 +14,6 @@ for i in range(len(numbers) + 1):
 
 assert expected_sum == actual_sum, f"Expected sum to be {expected_sum}, but got {actual_sum}"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

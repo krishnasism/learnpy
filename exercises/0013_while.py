@@ -19,3 +19,6 @@ actual_result = actual_result.strip()
 
 assert expected_result == actual_result, f"Expected result to be '{expected_result}', but got '{actual_result}'"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

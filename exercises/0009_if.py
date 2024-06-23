@@ -17,3 +17,6 @@ if (maths + english + sports) / 3 < 50:
 
 assert expected_pass_result == actual_pass_result, "Expected to fail"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

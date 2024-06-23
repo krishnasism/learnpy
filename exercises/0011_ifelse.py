@@ -16,3 +16,6 @@ actual_result = (
 
 assert expected_result == actual_result, "Expected to be not eligible to drive"
 print("ok")
+
+# To get a hint, change the following no to a yes
+# hint: no

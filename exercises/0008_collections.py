@@ -34,3 +34,6 @@ total_damage = 0
 # I'M NOT DONE
 
 print(total_damage)
+
+# To get a hint, change the following no to a yes
+# hint: no
