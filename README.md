@@ -1,3 +1,5 @@
+[![Unit tests](https://github.com/krishnasism/learnpy/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/krishnasism/learnpy/actions/workflows/test.yml)
+
 # learnpy
 
 Building a rustlings inspired python hands on coding journey
