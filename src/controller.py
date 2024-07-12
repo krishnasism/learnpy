@@ -1,6 +1,5 @@
 import asyncio
 import io
-import logging
 import sys
 
 import aiofiles
@@ -22,12 +21,11 @@ def get_correct_and_watched_exercises(exercises: list[Exercise]) -> tuple[list[E
             correct = exercise.run().is_success()
             if correct:
                 correct_exercises.append(exercise)
-                logging.debug(f"{exercise.name} is correct")
+                print(f"{exercise.name} is correct")
                 continue
-            else:
-                logging.debug(f"{exercise.name} is incorrect")
+            print(f"{exercise.name} is incorrect")
         watched_exercises.append(exercise)
-        logging.debug(f"Watching {exercise.name}")
+        print(f"Watching {exercise.name}")
     return correct_exercises, watched_exercises
 
 
@@ -47,15 +45,15 @@ async def watch_queue():
             if ready:
                 tests_passed = pytest.main(["-x", item.replace("exercises/", "exercise_tests/test_")]) == 0
                 sys.stdout = orig_stdout
-                logging.info("Correct!") if tests_passed else logging.info("Not correct!")
+                print("Correct!" if tests_passed else "Not correct!")
                 if tests_passed:
                     continue
             else:
-                logging.info("Don't forget to remove the # I'M NOT DONE when you're done ;)")
+                print("Don't forget to remove the # I'M NOT DONE when you're done ;)")
 
             hint_enabled = await show_hint(item)
             if hint_enabled:
-                logging.info(f"HINT: {exercise.hint}")
+                print(f"HINT: {exercise.hint}")
 
         await asyncio.sleep(2)
 

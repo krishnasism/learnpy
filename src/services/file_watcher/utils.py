@@ -1,4 +1,3 @@
-import logging
 import os
 from threading import Thread
 
@@ -9,7 +8,7 @@ from .file_watcher_event_handler import Handler
 
 def __watch_exercise_files():
     exercises_path = f"{os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(os.path.dirname(os.path.realpath(__file__))))))}/exercises/"  # noqa: E501
-    logging.debug(f"Watching: {exercises_path}")
+    print(f"Watching: {exercises_path}")
     observer = Observer()
     observer.schedule(Handler(), exercises_path, recursive=True)
     try:
