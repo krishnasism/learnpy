@@ -10,6 +10,16 @@ class Circle:
         return area
 
 
+# When you are done with an exercise, remove the following line!
+# I'M NOT DONE
+
+# To get a hint, change the following no to a yes
+# hint: no
+
+
+# Tests - Don't update
+
+
 def test_circle():
     radius = 5
     expected_area = 78.5
@@ -23,9 +33,3 @@ def test_circle():
 
 
 test_circle()
-
-# When you are done with an exercise, remove the following line!
-# I'M NOT DONE
-
-# To get a hint, change the following no to a yes
-# hint: no

@@ -11,8 +11,9 @@ to_test = "abc##!@!^!!"
 # When you are done with an exercise, remove the following line!
 # I'M NOT DONE
 
-assert not is_alphanumeric, "String must not alphanumeric since it contains special characters"
-print("ok")
-
 # To get a hint, change the following no to a yes
 # hint: no
+
+# Tests - don't update
+assert not is_alphanumeric, "String must not alphanumeric since it contains special characters"
+print("ok")

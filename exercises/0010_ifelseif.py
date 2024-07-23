@@ -4,8 +4,6 @@ science = 45
 history = 55
 art = 40
 
-expected_result = "Fail"
-
 actual_result = ""
 
 
@@ -21,8 +19,11 @@ else:
 # When you are done with an exercise, remove the following line!
 # I'M NOT DONE
 
-assert expected_result == actual_result, "Expected to fail"
-print("ok")
-
 # To get a hint, change the following no to a yes
 # hint: no
+
+# Tests - don't update
+expected_result = "Fail"
+
+assert expected_result == actual_result, "Expected to fail"
+print("ok")

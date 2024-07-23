@@ -12,6 +12,15 @@ class Student:
         return self.score >= 60
 
 
+# When you are done with an exercise, remove the following line!
+# I'M NOT DONE
+
+# To get a hint, change the following no to a yes
+# hint: no
+
+# Tests - Don't update
+
+
 def test_student():
     student_name = "Alice"
     student_score = 70
@@ -23,9 +32,3 @@ def test_student():
 
 
 test_student()
-
-# When you are done with an exercise, remove the following line!
-# I'M NOT DONE
-
-# To get a hint, change the following no to a yes
-# hint: no
