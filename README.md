@@ -2,9 +2,35 @@
 
 # learnpy
 
-Building a rustlings inspired python hands on coding journey
+A rustlings inspired python hands on coding journey
 
-## Local
+
+## Start Learning!
+
+1. Clone this repository
+2. Install dependencies
+```zsh
+# Navigate to repo
+cd learnpy
+
+# Create a virtual environment
+python -m venv .venv
+source .venv/bin/activate
+
+# Install requirements
+pip install -e .
+```
+3. Start coding!
+```zsh
+learn-py start
+```
+4. Go to any exercise under `exercises` and start coding as instructed. Start with `0000_intro.py` to understand all the features!
+
+**NOTE:** You can only run `learn-py` from the `learnpy` directory.
+
+---
+
+# Local Development
 ```zsh
 # Create a venv
 uv venv
@@ -21,7 +47,6 @@ uv pip install -r requirements-dev.txt
 # Run
 learn-py start
 ```
-
 
 ## Tests
 ```zsh
